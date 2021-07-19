@@ -3,8 +3,8 @@
 import discord
 from discord.ext import commands
 import random
-from .setup import setup
-from .token_var import token_var
+from sublib.setup import setup
+from sublib.token_var import token_var
 
 
 description = '''An example bot to showcase the discord.ext.commands extension

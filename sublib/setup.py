@@ -1,4 +1,4 @@
-from .main import bot
+from main import bot
 import discord.colour
 
 @bot.command()
