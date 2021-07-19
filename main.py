@@ -4,6 +4,7 @@ import discord
 from discord.ext import commands
 import random
 from .setup import setup
+from .token_var import token_var
 
 
 description = '''An example bot to showcase the discord.ext.commands extension
@@ -21,4 +22,4 @@ async def on_ready():
     print(f'Logged in as {bot.user} (ID: {bot.user.id})')
     print('------')
 
-bot.run('ODY2NjQ0NDk0ODc0NTc0ODc5.YPVjlQ.WmaWuzM5dHm8U84srSlGMt69fkA')
+bot.run(token_var)
