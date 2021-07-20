@@ -1,7 +1,7 @@
-from main import bot
+import runtime
 import discord.colour
 
-@bot.command()
+@runtime.bot.command()
 async def setup(ctx, *args):
 	try:
 		cr_guild = ctx.message.guild
