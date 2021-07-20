@@ -133,3 +133,6 @@ dmypy.json
 
 #vscode stuff
 /.vscode
+
+#data
+/roles.json

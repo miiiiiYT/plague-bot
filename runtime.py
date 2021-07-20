@@ -1,4 +1,4 @@
-import discord, discord.colour
+import discord, discord.colour, json
 from discord.ext import commands
 from token_var import token_var
 
@@ -10,7 +10,6 @@ There are a number of utility commands being showcased here.'''
 
 intents = discord.Intents.default()
 intents.members = True
-intents.message = True
 
 bot = commands.Bot(command_prefix='$', description=description, intents=intents)
 
@@ -31,7 +30,17 @@ async def on_message(msg):
 async def setup(ctx, *args):
 	try:
 		cr_guild = ctx.message.guild
-		cr_guild.create_role(name=args[0], permissions=0, color=discord.colour.Color.dark_green(), reason='Setup')
+		rtn_role = cr_guild.create_role(name=args[0], permissions=0, color=discord.colour.Color.dark_green(), reason='Setup')
+		out = {
+			rtn_role.guild.id: rtn_role.role.id
+        }
+
+		with open("./roles.json", "r+") as file:
+			data_ = json.load(file)
+			data_.update(out)
+			file.seek(0)
+			json.dump(data_, file)
+
 	except Exception as e:
 		print(e)
 		ctx.reply('Something went wrong.')
