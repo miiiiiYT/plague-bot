@@ -1,5 +1,3 @@
-# This example requires the 'members' privileged intents
-
 import discord
 from discord.ext import commands
 import random
@@ -15,7 +13,7 @@ There are a number of utility commands being showcased here.'''
 intents = discord.Intents.default()
 intents.members = True
 
-bot = commands.Bot(command_prefix='?', description=description, intents=intents)
+bot = commands.Bot(command_prefix='$', description=description, intents=intents)
 
 @bot.event
 async def on_ready():
