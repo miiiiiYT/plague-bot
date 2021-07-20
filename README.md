@@ -3,7 +3,7 @@ A discord bot to play a game called "plague".
 
 ## How to play
 When starting, the first player gets the plague role.
-:::image type="content" source="img/role.png" alt-text="An user having the "plague" role.":::
+![An user having the plague role.](img/role.png)
 
 When that user pings another one, the plague will spread.
 
