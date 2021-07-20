@@ -44,7 +44,7 @@ async def setup(ctx, *args):
 		await ctx.reply('Create role. Ready to play!')
 
 	except Exception as e:
-		print(e.with_traceback())
+		print(e.with_traceback(Exception))
 		await ctx.reply('Something went wrong.')
 
 
