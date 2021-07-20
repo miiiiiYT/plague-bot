@@ -18,19 +18,19 @@ async def on_ready():
     print(f'Logged in as {bot.user} (ID: {bot.user.id})')
     print('------')
 
-@bot.event
-async def on_message(msg):
-    if msg.guild == None:
-        msg.reply('This bot only works in groups.')
-    else:
-        # if msg.author.roles 
-        print(msg.author.roles)
+# @bot.event
+# async def on_message(msg):
+#     if msg.guild == None:
+#         msg.reply('This bot only works in groups.')
+#     else:
+#         # if msg.author.roles 
+#         print(msg.author.roles)
 
 @bot.command()
 async def setup(ctx, *args):
 	try:
 		cr_guild = ctx.message.guild
-		rtn_role = cr_guild.create_role(name=args[0], permissions=0, color=discord.colour.Color.dark_green(), reason='Setup')
+		rtn_role = await cr_guild.create_role(name=args[0], permissions=0, color=discord.colour.Color.dark_green(), reason='Setup')
 		out = {
 			rtn_role.guild.id: rtn_role.role.id
         }
@@ -41,9 +41,11 @@ async def setup(ctx, *args):
 			file.seek(0)
 			json.dump(data_, file)
 
+		await ctx.reply('Create role. Ready to play!')
+
 	except Exception as e:
-		print(e)
-		ctx.reply('Something went wrong.')
+		print(e.with_traceback())
+		await ctx.reply('Something went wrong.')
 
 
 bot.run(token_var)
