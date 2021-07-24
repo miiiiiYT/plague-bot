@@ -129,7 +129,7 @@ dmypy.json
 .pyre/
 
 #token
-/token_var.py
+token_var.py
 
 #vscode stuff
 /.vscode
